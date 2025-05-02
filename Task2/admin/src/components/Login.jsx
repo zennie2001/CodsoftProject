@@ -1,59 +1,48 @@
-import React, { useContext, useEffect, useState } from 'react'
-import { JobContext } from '../Context/JobContext'
-import { toast } from 'react-toastify'
+import React, { useEffect, useState } from 'react'
 import axios from 'axios'
-import { useNavigate } from 'react-router-dom'
+import { backendUrl } from '../App'
+import { toast } from 'react-toastify';
 
-function Login() {
-  const [ currentState, setCurrentState] = useState('Login')
-  
-
-  const {backendUrl,token, setToken} = useContext(JobContext)
-
-  const [name, setName] = useState('')
-  const [password, setPassword] = useState('')
-  const [email, setEmail] = useState('')
-
-  const navigate = useNavigate()
-
- 
-
-const onSubmitHandler = async(event)=>{
-  event.preventDefault()
-  try {
-    if(currentState === 'Sign Up'){
-      const response = await axios.post(backendUrl + '/api/user/register' ,{name, email, password})
-        if(response.data.success){
-          setToken(response.data.token)
-          localStorage.setItem('token', response.data.token)
-        }else{
-          toast.error(response.data.message)
-        }
-
-    }else{
-      const response = await axios.post(backendUrl + '/api/user/login', {email, password})
-        if(response.data.success){
-          setToken(response.data.token)
-          localStorage.setItem('token', response.data.token)
-        }else{
-          toast.error(response.data.message)
-        }
-    }
+function Login({setToken}) {
+    const [ currentState, setCurrentState] = useState('Login')
     
-  } catch (error) {
-    console.log(error.message)
-  }
-}
+    const [name, setName] = useState('')
+      const [password, setPassword] = useState('')
+      const [email, setEmail] = useState('')
 
-useEffect(()=>{
-  console.log(token);
-  if(token){
-    navigate('/')
-  }
- 
-},[token])
-   
+      const onSubmitHandler = async(event)=>{
+        event.preventDefault()
+        try {
+          if(currentState === 'Sign Up'){
+            const response = await axios.post(backendUrl + '/api/admin/register' ,{name, email, password})
+              if(response.data.success){
+                setToken(response.data.token)
+                
+              }else{
+                toast.error(response.data.message)
+              }
+      
+          }else{
+            const response = await axios.post(backendUrl + '/api/admin/login', {email, password})
+              if(response.data.success){
+                setToken(response.data.token)
+                
+              }else{
+                toast.error(response.data.message)
+              }
+          }
+          
+        } catch (error) {
+          console.log(error.message)
+        }
+      }
+      
+      
+
+
   return (
+    <div className=' '>
+            <h1 className='text-2xl font-bold mb-4 pt-10 text-center'>Employer Zone</h1>
     <form onSubmit={onSubmitHandler}  className='flex flex-col items-center w-[90%] sm:max-w-96 m-auto pt-14 pb-20 gap-4 text-gray-800'>
       <div className='inline-flex items-center gap-2 mb-2 mt-10'>
         <p className=' text-3xl'>{currentState}</p>
@@ -77,6 +66,7 @@ useEffect(()=>{
 
       </div>
     </form>
+    </div>
   )
 }
 
