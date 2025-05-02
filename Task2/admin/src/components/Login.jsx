@@ -49,7 +49,7 @@ function Login({setToken}) {
         <hr className='border-none h-[1.5px] w-8 bg-gray-800'/>
 
       </div>
-      {currentState === 'Login' ? '' : <input onChange={(e)=>setName(e.target.value)} value={name} type='text' className='w-full px-3 py-2 border border-gray-800 ' placeholder='Name' required /> }
+      {currentState === 'Login' ? '' : <input onChange={(e)=>setName(e.target.value)} value={name} type='text' className='w-full px-3 py-2 border border-gray-800 ' placeholder="Company's Name" required /> }
       <input onChange={(e)=>setEmail(e.target.value)} value={email} type='email' className='w-full px-3 py-2 border border-gray-800 ' placeholder='Email' required/>
       <input onChange={(e)=>setPassword(e.target.value)} value={password} type='password' className='w-full px-3 py-2 border border-gray-800 ' placeholder='Password' required/>
       <div className='w-full flex justify-between text-sm mt-[-8px]'>

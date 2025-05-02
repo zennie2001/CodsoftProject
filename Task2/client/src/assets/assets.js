@@ -5,6 +5,7 @@ import logodemo_img from './logo.png'
 import jobdetail_img from './jobdetail.jpg'
 import about_img from './aboutus.jpg'
 import contact_img from './contact_img.png'
+import upload_area from './upload_area.png'
 
 export const assets = {
     logo_img,
@@ -13,5 +14,6 @@ export const assets = {
     logodemo_img,
     jobdetail_img,
     about_img,
-    contact_img
+    contact_img,
+    upload_area
 }

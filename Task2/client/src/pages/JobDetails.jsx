@@ -139,7 +139,7 @@ function JobDetails() {
             </div>
 
             <div className='flex '>
-            <Link to='/jobapplication' ><button className='border px-5 py-2 rounded-lg bg-blue-600 text-white ml-4  '>Apply now</button></Link>
+            <Link to={`/jobapplication/${jobData._id}`} ><button className='border px-5 py-2 rounded-lg bg-blue-600 text-white ml-4  '>Apply now</button></Link>
             </div>
         </div>
 

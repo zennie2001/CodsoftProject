@@ -4,9 +4,10 @@ import Navbar from './components/Navbar'
 import Sidebar from './components/Sidebar'
 import { Route, Routes } from 'react-router-dom'
 import Post from './pages/Post'
-import Application from './pages/Application'
 import { ToastContainer } from 'react-toastify';
 import Login from './components/Login'
+import Jobs from './pages/Jobs'
+import Application from './pages/Application'
 
 export const backendUrl = import.meta.env.VITE_BACKEND_URL
 
@@ -30,8 +31,8 @@ function App() {
       <div className='w-[70%] mx-auto ml-[max(5vw, 25px)] my-8 text-gray-600'>
           <Routes>
             <Route path='/post' element={<Post />} />
-            <Route path='/application' element={<Application token={token}/>} />
-            
+            <Route path='/application' element={<Jobs token={token}/>} />
+            <Route path='/application/:jobId' element={<Application/>} />
           </Routes>
       </div>
       </div>

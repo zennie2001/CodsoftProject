@@ -30,7 +30,7 @@ function App() {
         <Route path='/profile' element={<Profile/>}/>
         <Route path='/about' element={<About/>}/>
         <Route path='/contact' element={<Contact/>}/>
-        <Route path='/jobapplication' element={<JobApplication/>}/>
+        <Route path='/jobapplication/:jobId' element={<JobApplication/>}/>
       </Routes>
       </div>
       <Footer/>

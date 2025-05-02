@@ -1,10 +1,11 @@
-import React, { useContext, useEffect } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { Link, NavLink, useNavigate } from 'react-router-dom'
 import { assets } from '../assets/assets'
 import { HiUserPlus, HiMiniUserCircle  } from "react-icons/hi2";
 import { JobContext } from '../Context/JobContext';
 
 function Navbar() {
+  const[dropDown, setDropDown] = useState(false)
   const {backendUrl,token, setToken} = useContext(JobContext)
     const navigate = useNavigate()
 
@@ -49,7 +50,17 @@ function Navbar() {
        
         {token ?
          <div className='flex f items-center  gap-4 '>
-         <img src={assets.profile_icon} className='w-5 cursor-pointer'/>
+         <img onClick={()=>setDropDown(!dropDown)} src={assets.profile_icon} className='w-5 cursor-pointer'/>
+
+         {dropDown &&
+         <div className='group-hover:block  absolute dropdown-menu right-40 mt-40'>
+                 <div className='flex flex-col gap-2 w-36 py-3 px-5 bg-slate-100 text-gray-500 rounded'>
+                     <p className='cursor-pointer hover:text-black'>My Profile</p>
+                     <p className='cursor-pointer hover:text-black'>Jobs</p>
+                     
+                  </div>
+            </div>
+          }
          <button onClick={logout} className='bg-black text-white rounded-md font-light px-8 py-2 cursor-pointer '>Logout</button>
  
          </div>
