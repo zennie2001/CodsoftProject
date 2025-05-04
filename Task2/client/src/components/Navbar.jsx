@@ -76,12 +76,14 @@ function Navbar() {
       </div>
       </div>
 
-      <div className='flex gap-4 items-center border border-gray-600 px-5 py-2 rounded-xl cursor-pointer'>
+      <div className=' border border-gray-600 px-5 py-2 rounded-xl cursor-pointer'>
        <a href='https://codsoft-admin.vercel.app'  target="_blank" rel="noopener noreferrer">
+       <div className='flex gap-4 items-center'>
       <HiUserPlus className='text-3xl' />
       <div>
       <h2>EMPLOYER ZONE </h2>
       <p className='text-md font-light'>Post a Job</p>
+      </div>
       </div>
       </a>
       </div>
