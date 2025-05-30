@@ -62,7 +62,7 @@ function JobList() {
                     <div className='flex px-4 pt-3 items-center justify-between'>
                         <div className='flex items-center gap-2'>
                         <HiOutlineClock />
-                        <p>Apply Before: {item.deadline} </p>
+                        <p>Apply Before: {new Date(item.deadline).toISOString().split("T")[0]} </p>
                         </div>
 
                       <Link to={`/job/${item._id}`}>  <button className='border px-5 py-2 rounded-lg bg-blue-600 text-white'>Apply now</button></Link>

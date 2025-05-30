@@ -40,7 +40,7 @@ function JobDetails() {
                     <p className='text-xl font-semibold'>{jobData.company}</p>
                 </div>
                 <div className='bg-white px-4 py-2 border border-gray-400 rounded-b-2xl text-center'>
-                <p>Apply before: {jobData.deadline}</p>
+                <p>Apply before: {new Date(jobData.deadline).toISOString().split("T")[0]}</p>
                 </div>
             </div>
         </div>
@@ -97,7 +97,7 @@ function JobDetails() {
                 <div className='grid grid-cols-[1fr_0.5fr_1fr] items-center my-3 mx-4'>
                     <p className=''>Apply Before(Deadline)</p>
                     <p>:</p>
-                    <p>{jobData.deadline} </p>
+                    <p>{new Date(jobData.deadline).toISOString().split("T")[0]} </p>
                 </div>
                 <hr/>
             </div>
